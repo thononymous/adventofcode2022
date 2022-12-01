@@ -1,3 +1,3 @@
-mod day1;
+pub mod day1;
 
-mod util;
+pub mod util;
