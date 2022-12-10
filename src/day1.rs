@@ -6,6 +6,7 @@ use crate::util::glom_emptyline_delimited;
 pub fn day1_part1(filename: &str) -> Result<usize, String> {
     let vv = glom_emptyline_delimited(filename)?;
     let sums = day1_sums(vv);
+    assert_ne!(sums.len(), 0);
     let max = sums.iter().max().cloned().unwrap();      // get the max
     Ok(max)
 }
@@ -47,7 +48,7 @@ mod tests {
     fn part1() -> Result<(), String> {
         let filename = "input/day1";
         let max = day1_part1(filename)?;
-        assert_eq!(max, 67016);
+        assert_eq!(max, 68775);
         Ok(())
     }
 
@@ -63,7 +64,7 @@ mod tests {
     fn part2() -> Result<(), String> {
         let filename = "input/day1";
         let sum3 = day1_part2(filename)?;
-        assert_eq!(sum3, 200116);
+        assert_eq!(sum3, 202585);
         Ok(())
     }
 }

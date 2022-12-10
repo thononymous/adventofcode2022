@@ -31,6 +31,22 @@ pub fn glom_emptyline_delimited(p: &str) -> Result<Vec<Vec<String>>, String> {
     Ok(vv)
 }
 
+pub fn rdtsc() -> u64 {
+    unsafe { std::arch::x86_64::_rdtsc() }
+}
+
+
+pub fn input_lines_no_whitespace_no_breaks(input: &str) -> Vec<&str> {
+    input.split_whitespace()
+        .map(|v| v.trim())
+        .filter(|v| !v.is_empty())
+        .collect()
+}
+
+pub fn input_lines(input: &str) -> Vec<&str> {
+    input.split("\n").collect()
+}
+
 #[cfg(test)]
 mod tests {
     use crate::util::glom_emptyline_delimited;
